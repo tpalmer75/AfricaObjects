@@ -1,0 +1,47 @@
+[
+	{
+		"label" : "Claudy",
+		"x": 100,
+		"y": 100,
+		"lat": 54.91153,
+		"lon" : -7.15189,
+		"circle": true,
+		"width" : 7
+	}, 
+	{
+		"label" : "Provo",
+		"x": 100, 
+		"y": 120,
+		"lat": 40.233844,
+		"lon" : -111.658534,
+		"circle": false,
+		"width" : 7
+	}, 
+	{
+		"label" : "New York",
+		"x": 100, 
+		"y": 120,
+		"lat": 40.714353,
+		"lon" : -74.005973,
+		"circle": false,
+		"width" : 7
+	}, 
+	{
+		"label" : "Seattle",
+		"x": 100, 
+		"y": 120,
+		"lat": 47.60621,
+		"lon" : -122.332071,
+		"circle": false,
+		"width" : 7
+	}, 
+	{
+		"label" : "Huddersfield",
+		"x": 100, 
+		"y": 120,
+		"lat": 53.645792,
+		"lon" : -1.785035,
+		"circle": false,
+		"width" : 7
+	}
+]

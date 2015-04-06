@@ -1,0 +1,37 @@
+[
+	{
+		"label" : "One",
+		"x": 100,
+		"y": 100,
+		"circle": true,
+		"width" : 10
+	}, 
+	{
+		"label" : "Two",
+		"x": 100,
+		"y": 120,
+		"circle": false,
+		"width" : 10
+	}, 
+	{
+		"label" : "Three",
+		"x": 100,
+		"y": 140,
+		"circle": true,
+		"width" : 10
+	}, 
+	{
+		"label" : "Four",
+		"x": 100,
+		"y": 160,
+		"circle": true,
+		"width" : 10
+	}, 
+	{
+		"label" : "Five",
+		"x": 100,
+		"y": 180,
+		"circle": true,
+		"width" : 10
+	}
+]
