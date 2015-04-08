@@ -19,9 +19,9 @@ void setup() {
   smooth();
 
   // Loop through CSV files
-  //for (int yr = 1997;yr < 2014; yr ++) {
-  populateSet(1997);
-  //}
+  for (int yr = 1997; yr <= 2014; yr++) {
+    loadYear(yr);
+  }
 }
 
 // Show points on key release
@@ -40,9 +40,9 @@ void draw() {
 
   // loading in the data
   for (int i=0; i<dataPoints.size (); i++) {
-      Conflict tempRef = dataPoints.get(i);
-      tempRef.checkYear();
-   }
+    Conflict tempRef = dataPoints.get(i);
+    tempRef.checkYear();
+  }
 
 
   fill(#999999);
@@ -50,72 +50,69 @@ void draw() {
   text(globalYear, 40, height - 40);
 }
 
-void populateSet(int setYear) {
-  String csv[];
-  String africanData[][];
-
-  int mLength; // to keep old code from breaking
+void loadYear(int setYear) {
+  String tempFile;
 
   switch(setYear) {
   case 1997:
-    csv = loadStrings("ac_1997.csv");
-    africanData = new String[csv.length][3];
+    tempFile = "ac_1997.csv";
+    populateSet(tempFile);
 
-    for (int i=0; i<csv.length; i++) {
-      africanData[i] = csv[i].split(",");
-    }
-
-    for (int i=0; i<africanData.length; i++) {
-
-      int year = int(africanData[i][0]);
-
-      float graphLong = map(float(africanData[i][2]), -17.8, 51.8, margin, vectorWidth + margin);
-      float graphLat = map(float(africanData[i][1]), 37.346, -34.342, margin, vectorHeight + margin);
-      int dataDeaths = int(africanData[i][3]);
-
-      int radius = 5;
-
-      noStroke();
-      fill(#445a6a);
-
-      dataPoints.add(new Conflict(graphLong, graphLat, radius, 0, year, dataDeaths));
-      println("loading line " + dataPoints.size());
-    }
 
     break;
-  case 2: 
-    mLength = 28;
+  case 1998: {
+    tempFile = "ac_1998.csv";
+    populateSet(tempFile);
+
     break;
-  case 3:
-    mLength = 31;
+  }
+  case 1999: {
+    tempFile = "ac_1999.csv";
+    populateSet(tempFile);
+
     break;
-  case 4:
-    mLength = 30;
+  }
+  case 2000: {
+    tempFile = "ac_2000.csv";
+    populateSet(tempFile);
+
     break;
-  case 5:
-    mLength = 31;
+  }
+  case 2001: 
+    tempFile = "ac_2001.csv";
+    populateSet(tempFile);
+
     break;
-  case 6:
-    mLength = 30;
-    break;
-  case 7:
-    mLength = 31;
-    break;
-  case 8:
-    mLength = 31;
-    break;
-  case 9:
-    mLength = 30;
-    break;
-  case 10:
-    mLength = 31;
-    break;
-  case 11:
-    mLength = 30;
-    break;
-  case 12:
-    mLength = 31;
-    break;
+  }
+}
+
+void populateSet(String fileLocation) {
+  String africanData[][];
+  String csv[];
+
+  csv = loadStrings(fileLocation);
+
+  africanData = new String[csv.length][3];
+
+  for (int i=0; i<csv.length; i++) {
+    africanData[i] = csv[i].split(",");
+  }
+
+  for (int i=0; i<africanData.length; i++) {
+
+    int year = int(africanData[i][0]);
+
+    float graphLong = map(float(africanData[i][2]), -17.8, 51.8, margin, vectorWidth + margin);
+    float graphLat = map(float(africanData[i][1]), 37.346, -34.342, margin, vectorHeight + margin);
+    int dataDeaths = int(africanData[i][3]);
+
+    int radius = 5;
+
+    noStroke();
+    fill(#445a6a);
+
+    dataPoints.add(new Conflict(graphLong, graphLat, radius, 0, year, dataDeaths));
+    println("loading line " + dataPoints.size());
   }
 }
 
